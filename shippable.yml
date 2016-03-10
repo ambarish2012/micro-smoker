@@ -14,5 +14,5 @@ build:
   pre_ci:
     - node --version
   ci:
-    - echo "-X POST -H 'Content-Type: application/json' -H 'x-api: ${NOUVOLA_API_KEY}' https://divecloud.nouvola.com/api/v1/plans/${NOUVOLA_PLAN_ID}/run"
-    - curl "-X POST -H 'Content-Type: application/json' -H 'x-api: ${NOUVOLA_API_KEY}' https://divecloud.nouvola.com/api/v1/plans/${NOUVOLA_PLAN_ID}/run" #execute a Test Plan on DiveCloud at Nouvola.com
+    - cat apiCall.sh | sed "s/{NOUVOLA_API_KEY}/$NOUVOLA_API_KEY/" | sed "s/{NOUVOLA_PLAN_ID}/$NOUVOLA_PLAN_ID/" > apiCall.sh
+    - ./apiCall.sh
