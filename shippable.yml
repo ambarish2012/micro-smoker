@@ -15,5 +15,5 @@ build:
     - node --version
   ci:
     - cat apiCall.sh | sed "s/{NOUVOLA_API_KEY}/$NOUVOLA_API_KEY/" | sed "s/{NOUVOLA_PLAN_ID}/$NOUVOLA_PLAN_ID/" > apiCall.sh
-    - cat apiCall.sh
+    - which bash
     - ./apiCall.sh
