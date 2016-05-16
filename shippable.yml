@@ -22,4 +22,4 @@ build:
   ci:
     - cd /root/micro-smoker
     - cat apiCall.sh | sed "s/{NOUVOLA_API_KEY}/$NOUVOLA_API_KEY/" | sed "s/{NOUVOLA_PLAN_ID}/$NOUVOLA_PLAN_ID/" > apiCall.sh
-    - ./apiCall.sh
+    - $(which bash) ./apiCall.sh
