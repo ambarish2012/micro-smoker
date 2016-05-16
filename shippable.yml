@@ -11,16 +11,16 @@ env:
     - secure: FFBcn4HfaggIDYZMJBPAJ8AGeiyO/XNmgOfymwhvhMUdADd5tJK7fbr5cn+mxJ6g7yRpxXhpx4orxy3kMUJRlWfgkjbaod5kp4UJMLe6IebDO9OG4OVVJorFX5A/LfhaiYWiii/WsOE5miuXol0XuuJluKuVOUkKcFq9DylehZH6sP40Re3YprEmRojLJ55nKc4e1g/sOR0Ns9ZvfmtyKny4dgOfOoF8tSOLrkqiv8CGjLbTTtGIhslQ29myUFtO59IZCJq/90wnvCgBHp5poE8P1ZEjfHKO7iQDZZ/DBy81ZrWuHtxhSfQ3jH/+5+7CKH15dRAZeegILPZi3whYsQ==
 
 build:
-  pre_ci:
-    - node --version
-    - docker build -t ttrahan/micro-smoker:nouvola .
-  pre_ci_boot:
-    image_name: ttrahan/micro-smoker
-    image_tag: nouvola
-    pull: false
-    options: --privileged=true
+  # pre_ci:
+  #   - node --version
+#    - docker build -t ttrahan/micro-smoker:nouvola .
+  # pre_ci_boot:
+  #   image_name: ttrahan/micro-smoker
+  #   image_tag: nouvola
+  #   pull: false
+  #   options: --privileged=true
   ci:
-    - sudo apt-get update && apt-get install curl
-    - cd /root/micro-smoker
+#    - sudo apt-get update && apt-get install curl
+    - cd $SHIPPABLE_BUILD_DIR
     - cat apiCall_template.sh | sed "s/{NOUVOLA_API_KEY}/$NOUVOLA_API_KEY/" | sed "s/{NOUVOLA_PLAN_ID}/$NOUVOLA_PLAN_ID/" > apiCall.sh
     - $(which bash) ./apiCall.sh
