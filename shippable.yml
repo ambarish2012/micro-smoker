@@ -15,7 +15,7 @@ build:
     - node --version
     - docker build -t ttrahan/micro-smoker:nouvola .
   pre_ci_boot:
-    image_name: ttrahan/micro-smoker:nouvola
+    image_name: ttrahan/micro-smoker
     image_tag: nouvola
     pull: false
     options: --privileged=true
