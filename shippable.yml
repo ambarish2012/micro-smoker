@@ -22,5 +22,5 @@ build:
   ci:
     - sudo apt-get update && apt-get install curl
     - cd /root/micro-smoker
-    - cat apiCall.sh | sed "s/{NOUVOLA_API_KEY}/$NOUVOLA_API_KEY/" | sed "s/{NOUVOLA_PLAN_ID}/$NOUVOLA_PLAN_ID/" > apiCall.sh
+    - cat apiCall_template.sh | sed "s/{NOUVOLA_API_KEY}/$NOUVOLA_API_KEY/" | sed "s/{NOUVOLA_PLAN_ID}/$NOUVOLA_PLAN_ID/" > apiCall.sh
     - $(which bash) ./apiCall.sh
